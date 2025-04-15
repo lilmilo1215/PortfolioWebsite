@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+.skills-section {
+    padding: 0px 0px;
+    position: relative;
+    z-index: 2;
+    transition: background 0.3s ease, color 0.3s ease;
+    overflow: hidden;
+    scroll-margin-top: 80px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: -40%;
+    left: -25%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(ellipse at 30% 30%, rgba(0, 188, 212, 0.15), transparent 60%),
+        radial-gradient(ellipse at 70% 40%, rgba(255, 0, 150, 0.1), transparent 70%);
+    animation: backgroundShift 25s ease-in-out infinite;
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes backgroundShift {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+
+    50% {
+        transform: scale(1.05) translate(30px, -20px);
+    }
+
+    100% {
+        transform: scale(1) translate(0, 0);
+    }
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.skills-intro {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    color: inherit;
+    font-family: 'Inter', sans-serif;
+}
+
+.brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    animation: gradientMove 6s ease infinite;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    margin-top: 40px;
+    padding: 0 30px;
+}
+
+.skill-category {
+    text-align: left;
+}
+
+.skill-category h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #00b4d8;
+    text-align: center;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-category ul li {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    color: inherit;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Light Mode */
+.light .skills-section {
+    background: linear-gradient(to bottom, #f0f4f8, #ddeeff);
+    color: #111;
+}
+
+.light .brand-name {
+    background: linear-gradient(90deg, #0077b6, #ff006e, #00b4d8);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Dark Mode */
+.dark .skills-section {
+    background: radial-gradient(circle at top left, #0e0e0e, #0a0a0a 80%);
+    color: #f2f2f2;
+}
+
+/* Responsive Layout */
+@media (max-width: 991px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .skill-category h3,
+    .skill-category ul li {
+        text-align: center;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+    }
+}

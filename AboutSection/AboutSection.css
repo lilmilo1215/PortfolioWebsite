@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+.about-section {
+    padding: 0px 0px;
+    position: relative;
+    z-index: 2;
+    transition: background 0.3s ease, color 0.3s ease;
+    overflow: hidden;
+    margin-top: 0;
+    scroll-margin-top: 80px;
+}
+
+/* DARK MODE – Unchanged */
+.dark .about-section {
+    background: radial-gradient(circle at top left, #0e0e0e, #0a0a0a 80%);
+    color: #f2f2f2;
+}
+
+/* LIGHT MODE – Enhanced for readability & clarity */
+.light .about-section {
+    background: linear-gradient(to bottom, #f0f4f8, #ddeeff);
+    color: #111;
+}
+
+.light .about-text h2 {
+    background: linear-gradient(90deg, #0077b6, #ff006e, #00b4d8);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientMove 6s ease infinite;
+}
+
+.light .about-text p {
+    color: #333;
+    opacity: 0.95;
+}
+
+/* Reuse the same glow overlay from Hero */
+.hero-overlay {
+    position: absolute;
+    top: -40%;
+    left: -25%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(ellipse at 30% 30%, rgba(0, 188, 212, 0.15), transparent 60%),
+        radial-gradient(ellipse at 70% 40%, rgba(255, 0, 150, 0.1), transparent 70%);
+    animation: backgroundShift 25s ease-in-out infinite;
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Background animation */
+@keyframes backgroundShift {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+
+    50% {
+        transform: scale(1.05) translate(30px, -20px);
+    }
+
+    100% {
+        transform: scale(1) translate(0, 0);
+    }
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.about-text {
+    flex: 1 1 500px;
+    color: inherit;
+}
+
+.about-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #ff0096;
+    /* This will be overridden by .light mode above */
+}
+
+.about-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    line-height: 1.75;
+    margin-bottom: 20px;
+    color: #ddd;
+    opacity: 1;
+}
+
+.light .about-text p {
+    color: #333;
+}
+
+.about-image {
+    flex: 1 1 500px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Fade Animations */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: fadeInLeft 1.2s ease forwards;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(40px);
+    animation: fadeInRight 1.2s ease forwards;
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

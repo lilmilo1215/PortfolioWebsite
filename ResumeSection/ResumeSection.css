@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+.resume-section {
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    scroll-margin-top: 80px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Light Mode */
+.light .resume-section {
+    background: linear-gradient(to bottom, #f0f4f8, #ddeeff);
+    color: #111;
+}
+
+.light .brand-name {
+    background: linear-gradient(90deg, #0077b6, #ff006e, #00b4d8);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.light .resume-section p {
+    color: #333;
+}
+
+/* Dark Mode */
+.dark .resume-section {
+    background: radial-gradient(circle at top left, #0e0e0e, #0a0a0a 80%);
+    color: #f2f2f2;
+}
+
+/* Glow Overlay */
+.hero-overlay {
+    position: absolute;
+    top: -40%;
+    left: -25%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(ellipse at 30% 30%, rgba(0, 188, 212, 0.15), transparent 60%),
+        radial-gradient(ellipse at 70% 40%, rgba(255, 0, 150, 0.1), transparent 70%);
+    animation: backgroundShift 25s ease-in-out infinite;
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes backgroundShift {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+
+    50% {
+        transform: scale(1.05) translate(30px, -20px);
+    }
+
+    100% {
+        transform: scale(1) translate(0, 0);
+    }
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    animation: gradientMove 6s ease infinite;
+}
+
+.resume-section p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 14px 36px;
+    background: rgba(0, 188, 212, 0.12);
+    color: #00eaff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 1px solid rgba(0, 188, 212, 0.3);
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 12px rgba(0, 188, 212, 0.15);
+    cursor: pointer;
+}
+
+.hero-btn:hover {
+    background: rgba(0, 188, 212, 0.25);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 24px rgba(0, 255, 255, 0.35), 0 6px 16px rgba(0, 188, 212, 0.2);
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
